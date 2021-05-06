@@ -12,7 +12,7 @@
 exec --no-startup-id nm-applet
 exec --no-startup-id cbatticon
 exec --no-startup-id compton -f
-exec --no-startup-id feh --bg-scale $HOME/pictures/wallpapers/chvb28zcemv51.jpg
+exec --no-startup-id $HOME/.fehbg
 
 
 ##### Basic Definitions #####
