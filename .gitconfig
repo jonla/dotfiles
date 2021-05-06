@@ -1,0 +1,34 @@
+[user]
+	email = jonathan.larsson7@gmail.com
+	name = Jonathan Larsson
+[alias]
+    # one-line log
+    l = log -10 --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=short
+    ll = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=short
+
+    a = add
+    au = add -u
+    rm = rm
+    c = commit
+    amend = commit --amend
+    amendn = commit --amend --no-edit
+    d = diff --color
+    ds = diff --color --stat
+
+    s = status -s
+    co = checkout
+    cob = checkout -b
+    b = branch
+
+    ss = stash save
+    ssu = stash save --include-untracked
+    sl = stash list
+    sp = stash pop
+    sa = stash apply
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+[core]
+	excludesfile = ~/.gitignore_global
+[diff]
+	tool = vimdiff
