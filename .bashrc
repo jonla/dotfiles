@@ -98,6 +98,7 @@ alias ll='ls -lFh'
 alias la='ls -lAFh'
 alias l='ls -CF'
 alias tat='tmux attach || tmux new-session'
+alias asdf='source ~/.xinitrc'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -147,10 +148,25 @@ done
 export EDITOR=nvim
 export VISUAL=nvim
 export TERMINAL=urxvt
+# Fix issue with pyright: (https://fabiorosado.dev/blog/pyright-worker-threads-missing/)
+export NODE\_OPTIONS=--experimental-worker
+
+alias vim=nvim
+alias vimdiff='nvim -d'
 
 # Nicer tab-completion in bash
 bind TAB:menu-complete
 bind '"\e[Z": menu-complete-backward'
+
+# Local file with exports 
+if [ -f ~/.exports ]; then
+    . ~/.exports
+fi
+
+# Local file with aliases 
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
 
 # Extract most know archives with one command
 extract () {
