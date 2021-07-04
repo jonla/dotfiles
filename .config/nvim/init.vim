@@ -23,24 +23,20 @@ source ~/.config/nvim/quickscope.vim
 
 " Set custom colors 
 function! s:patchColors()
-    hi vertsplit               ctermfg=Black     ctermbg=DarkGreen
+    hi clear vertsplit
     hi LineNr                  ctermfg=238
-    hi StatusLine              ctermfg=Gray      ctermbg=None      cterm=Bold
-    hi StatusLineNC            ctermfg=Black     ctermbg=None      cterm=Bold
-    hi TabLineFill             ctermfg=Black     ctermbg=None      cterm=None
-    hi TabLine                 ctermfg=Blue      ctermbg=Black
     hi CursorLine                                ctermbg=237       cterm=None
-    hi clear SignColumn        ctermfg=None                        cterm=None
-    hi clear FoldColum         ctermfg=None                        cterm=None
+    hi clear SignColumn
+    hi clear FoldColum
     hi GitGutterAdd            ctermfg=Green     ctermbg=None
     hi GitGutterChange         ctermfg=DarkGray  ctermbg=None
     hi GitGutterDelete         ctermfg=Red       ctermbg=None
-    hi GitGutterChangeDelete   ctermfg=Red       ctermbg=None  
+    hi GitGutterChangeDelete   ctermfg=Red       ctermbg=None
     hi EndOfBuffer             ctermfg=237
-    hi Pmenu                   ctermfg=DarkGreen ctermbg=238
-    hi PmenuSel                ctermfg=Red       ctermbg=None
-    hi PmenuSbar               ctermfg=Blue      ctermbg=None
-    hi PmenuThumb              ctermfg=Yellow    ctermbg=None
+    hi Pmenu                   ctermfg=DarkGray  ctermbg=236
+    hi PmenuSel                ctermfg=Red       ctermbg=237       cterm=bold
+    hi PmenuSbar               ctermfg=Blue      ctermbg=236
+    hi PmenuThumb              ctermfg=Yellow    ctermbg=236
     hi ErrorMsg                ctermfg=Black     ctermbg=Red
     hi Error                   ctermfg=Black     ctermbg=Red
     hi ColorColumn             ctermfg=Black     ctermbg=Red
