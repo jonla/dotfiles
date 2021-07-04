@@ -20,6 +20,8 @@ source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/airline.vim
 source ~/.config/nvim/quickscope.vim
+lua require('telescope-settings')
+lua require('devicons-settings')
 
 " Set custom colors 
 function! s:patchColors()

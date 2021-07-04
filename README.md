@@ -4,6 +4,10 @@ Apply with
     stow .
 
 # TODO
+* Make Telescope find_files respect .gitignore AND show hidden files
+* Replace fzf with telescope
+
+# Note
 Idea was to apply all these dotfiles with:
 
 	stow --dotfiles .

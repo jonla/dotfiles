@@ -18,7 +18,7 @@ let $FZF_DEFAULT_OPTS="--ansi --inline-info --preview-window 'right:50%:hidden' 
 let $FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git/**' --glob '!build/**' --glob '!.dart_tool/**' --glob '!.idea' --glob '!node_modules'"
 
 " Mappings
-nnoremap <leader>f :Files<cr>
+" nnoremap <leader>f :Files<cr>
 nnoremap <leader>F :Rg<cr>
-nnoremap <leader>H :History<cr>
-nnoremap <leader>b :Buffers<CR>
+" nnoremap <leader>H :History<cr>
+" nnoremap <leader>b :Buffers<CR>
