@@ -4,7 +4,7 @@
 let g:NERDTreeWinPos = "right"
 
 " Toggle NERDTree
-map <silent> <leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 
 " Localize current buffer in NERDTree
 nnoremap <silent> <leader>nf :NERDTreeFind<CR>
