@@ -48,6 +48,9 @@ autocmd BufEnter * call AutoRestoreWinView()
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" Always in insert mode in terminal
+autocmd TermOpen * startinsert
+
 " Auto-reload config file when saving it
 augroup reload_vimrc " {
     autocmd!
