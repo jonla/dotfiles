@@ -59,7 +59,7 @@ Xft*antialias:          true
 Xft*hinting:            full
 
 !clickable urls
-URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,font-size
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
