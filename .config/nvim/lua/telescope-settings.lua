@@ -44,6 +44,7 @@ require("telescope").setup {
     pickers = {
         -- Your special builtin config goes in here
         buffers = {
+            file_ignore_patterns = {},
             sort_lastused = true,
             theme = "dropdown",
             previewer = false,
