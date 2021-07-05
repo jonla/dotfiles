@@ -40,7 +40,7 @@ function! s:patchColors()
     hi PmenuSbar               ctermfg=Blue      ctermbg=236
     hi PmenuThumb              ctermfg=Yellow    ctermbg=236
     hi ErrorMsg                ctermfg=Black     ctermbg=Red
-    hi Error                   ctermfg=Black     ctermbg=Red
+    hi Error                   ctermfg=Red       ctermbg=None      cterm=underline
     hi ColorColumn             ctermfg=Black     ctermbg=Red
     hi Comment                                                     cterm=italic
 endfunction
