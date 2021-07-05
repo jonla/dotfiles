@@ -14,6 +14,7 @@ require("telescope").setup {
             '--smart-case'
         },
         color_devicons = true,
+        shorten_path = true,
         file_ignore_patterns = {".git"},
         mappings = {
             i = {
@@ -46,6 +47,7 @@ require("telescope").setup {
             sort_lastused = true,
             theme = "dropdown",
             previewer = false,
+            shorten_path = true,
             mappings = {
                 i = {
                     ["<c-d>"] = actions.delete_buffer,
@@ -56,8 +58,12 @@ require("telescope").setup {
                 }
             }
         },
-        -- find_files = {
-        -- }
+        find_files = {
+            shorten_path = true,
+        },
+        oldfiles = {
+            shorten_path = true,
+        },
     },
     extensions = {
         fzf = {
@@ -65,7 +71,7 @@ require("telescope").setup {
             override_generic_sorter = false, -- override the generic sorter
             override_file_sorter = true,     -- override the file sorter
             case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
+            shorten_path = true
         }
     }
 }
