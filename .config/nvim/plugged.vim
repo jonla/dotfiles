@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'vim-airline/vim-airline'
     Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'ryanoasis/vim-devicons'
     Plug 'unblevable/quick-scope'
     " Telescope  and requirements
     Plug 'nvim-lua/popup.nvim'
