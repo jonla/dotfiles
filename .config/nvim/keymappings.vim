@@ -11,7 +11,6 @@ vnoremap : ;
 nnoremap ; :
 nnoremap : ;
 
-" Temporary mappings
 inoremap jj <Esc>
 " Fast switching to the alternate file
 nnoremap <BS> :buffer#<CR>
@@ -32,6 +31,9 @@ cnoremap <C-j> <Down>
 
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>Q :q<cr>
+
+" Disable Ex mode
+nnoremap Q <nop>
 
 " Shift insensitive save and exit
 command! W w
