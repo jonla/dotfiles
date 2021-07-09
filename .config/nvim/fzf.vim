@@ -19,6 +19,6 @@ let $FZF_DEFAULT_COMMAND = "rg --files --hidden --glob '!.git/**' --glob '!build
 
 " Mappings
 " nnoremap <leader>f :Files<cr>
-nnoremap <leader>F :Rg<cr>
+nnoremap <leader>Ff :Rg<cr>
 " nnoremap <leader>H :History<cr>
 " nnoremap <leader>b :Buffers<CR>
