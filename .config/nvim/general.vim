@@ -41,6 +41,8 @@ set diffopt+=vertical
 set switchbuf=useopen,usetab,newtab
 set jumpoptions=stack
 
+set inccommand=nosplit
+
 " When switching buffers, preserve window view.
 autocmd BufLeave * call AutoSaveWinView()
 autocmd BufEnter * call AutoRestoreWinView()
