@@ -65,6 +65,9 @@ require("telescope").setup {
         oldfiles = {
             shorten_path = true,
         },
+        current_buffer_fuzzy_find = {
+            sorting_strategy = "ascending"
+        }
     },
     extensions = {
         fzf = {
