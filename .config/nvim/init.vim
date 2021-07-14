@@ -25,26 +25,18 @@ lua require('telescope-settings')
 lua require('devicons-settings')
 lua require('galaxyline-settings')
 
+set termguicolors
+colorscheme gruvbox
+
 " Set custom colors 
 function! s:patchColors()
     hi clear vertsplit
-    hi LineNr                  ctermfg=238
-    hi CursorLine                                ctermbg=237       cterm=None
-    hi clear SignColumn
-    hi clear FoldColum
-    hi GitGutterAdd            ctermfg=Green     ctermbg=None
-    hi GitGutterChange         ctermfg=DarkGray  ctermbg=None
-    hi GitGutterDelete         ctermfg=Red       ctermbg=None
-    hi GitGutterChangeDelete   ctermfg=Red       ctermbg=None
-    hi EndOfBuffer             ctermfg=237
-    hi Pmenu                   ctermfg=DarkGray  ctermbg=236
-    hi PmenuSel                ctermfg=Red       ctermbg=237       cterm=bold
-    hi PmenuSbar               ctermfg=Blue      ctermbg=236
-    hi PmenuThumb              ctermfg=Yellow    ctermbg=236
-    hi ErrorMsg                ctermfg=Black     ctermbg=Red
-    hi Error                   ctermfg=Red       ctermbg=None      cterm=underline
-    hi ColorColumn             ctermfg=Black     ctermbg=Red
-    hi Comment                                                     cterm=italic
+    hi Normal                                 guibg=None
+    hi GitGutterAdd            ctermbg=None   guibg=None
+    hi GitGutterChange         ctermbg=None   guibg=None
+    hi GitGutterDelete         ctermbg=None   guibg=None
+    hi GitGutterChangeDelete   ctermbg=None   guibg=None
+    hi Comment                 cterm=italic   gui=italic
 endfunction
 
 autocmd! ColorScheme * call s:patchColors()
