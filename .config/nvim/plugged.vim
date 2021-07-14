@@ -14,7 +14,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'wellle/tmux-complete.vim'
     Plug 'benmills/vimux'
     Plug 'airblade/vim-gitgutter'
-    Plug 'scrooloose/nerdtree'
+    " Plug 'scrooloose/nerdtree'
+    Plug 'kyazdani42/nvim-tree.lua'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'vim-airline/vim-airline'
     Plug 'kyazdani42/nvim-web-devicons'
