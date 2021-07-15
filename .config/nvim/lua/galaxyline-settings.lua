@@ -166,6 +166,15 @@ end
 
 -- Left side
 gls.left[1] = {
+    ModeLeftCap = {
+        provider = function()
+            vim.api.nvim_command('hi GalaxyModeLeftCap guifg='..mode_color())
+            return ''
+        end,
+        highlight = { mode_color(), 'None' },
+    },
+}
+gls.left[2] = {
     ViMode = {
         provider = function()
             local aliases = {
@@ -192,12 +201,22 @@ gls.left[1] = {
             else
                 mode = vim.fn.mode():byte()
             end
-            return '  ' .. mode .. ' '
+            -- return '  ' .. mode .. ' '
+            return mode
         end,
         highlight = { colors.bg, colors.bg, 'bold' },
     },
 }
-gls.left[2] = {
+gls.left[3] = {
+    ModeRightCap = {
+        provider = function()
+            vim.api.nvim_command('hi GalaxyModeRightCap guifg='..mode_color())
+            return ''
+        end,
+        highlight = { mode_color(), colors.section_bg},
+    },
+}
+gls.left[4] = {
     FileIcon = {
         provider = { function()
             return '  '
@@ -209,7 +228,7 @@ gls.left[2] = {
         },
     },
 }
-gls.left[3] = {
+gls.left[5] = {
     FilePath = {
         provider = function()
             local fp = vim.fn.fnamemodify(vim.fn.expand '%', ':~:.:h')
@@ -230,7 +249,7 @@ gls.left[3] = {
         highlight = { colors.middlegrey, colors.section_bg },
     },
 }
-gls.left[4] = {
+gls.left[6] = {
     FileName = {
         provider = get_current_file_name,
         condition = buffer_not_empty,
@@ -239,46 +258,31 @@ gls.left[4] = {
         separator_highlight = { colors.section_bg, colors.bg},
     },
 }
--- gls.left[4] = {
+-- gls.left[6] = {
 --     WhiteSpace = {
 --         provider = trailing_whitespace,
 --         condition = buffer_not_empty,
 --         highlight = {colors.fg, colors.bg}
 --     }
 -- }
--- gls.left[5] = {
+-- gls.left[7] = {
 --     TabIndent = {
 --         provider = tab_indent,
 --         condition = buffer_not_empty,
 --         highlight = {colors.fg, colors.bg}
 --     }
 -- }
-gls.left[8] = {
+gls.left[10] = {
     DiagnosticsCheck = {
         provider = { LspCheckDiagnostics },
         highlight = { colors.middlegrey, colors.bg },
     },
 }
-gls.left[9] = {
+gls.left[11] = {
     DiagnosticError = {
         provider = { 'DiagnosticError' },
         icon = '  ',
         highlight = { colors.red, colors.bg },
-        -- separator = ' ',
-        -- separator_highlight = {colors.bg, colors.bg}
-    },
-}
--- gls.left[10] = {
---     Space = {
---         provider = function() return ' ' end,
---         highlight = {colors.section_bg, colors.bg}
---     }
--- }
-gls.left[11] = {
-    DiagnosticWarn = {
-        provider = { 'DiagnosticWarn' },
-        icon = '  ',
-        highlight = { colors.orange, colors.bg },
         -- separator = ' ',
         -- separator_highlight = {colors.bg, colors.bg}
     },
@@ -290,6 +294,21 @@ gls.left[11] = {
 --     }
 -- }
 gls.left[13] = {
+    DiagnosticWarn = {
+        provider = { 'DiagnosticWarn' },
+        icon = '  ',
+        highlight = { colors.orange, colors.bg },
+        -- separator = ' ',
+        -- separator_highlight = {colors.bg, colors.bg}
+    },
+}
+-- gls.left[14] = {
+--     Space = {
+--         provider = function() return ' ' end,
+--         highlight = {colors.section_bg, colors.bg}
+--     }
+-- }
+gls.left[15] = {
     DiagnosticInfo = {
         provider = { 'DiagnosticInfo' },
         icon = '  ',
@@ -298,7 +317,7 @@ gls.left[13] = {
         -- separator_highlight = {colors.section_bg, colors.bg}
     },
 }
-gls.left[14] = {
+gls.left[16] = {
     LspStatus = {
         provider = { LspStatus },
         -- separator = ' ',
@@ -382,23 +401,65 @@ gls.right[7] = {
         -- separator_highlight = {colors.section_bg, colors.bg}
     },
 }
-gls.right[8] = {
-    PerCent = {
-        provider = 'LinePercent',
-        separator = ' ', -- ' ',
-        separator_highlight = { colors.blue, colors.bg },
-        highlight = { colors.darkgrey, colors.blue, 'bold' },
-    },
-}
+-- gls.right[8] = {
+--     PerCent = {
+--         provider = 'LinePercent',
+--         separator = ' ', -- ' ',
+--         separator_highlight = { colors.blue, colors.bg },
+--         highlight = { colors.darkgrey, colors.blue, 'bold' },
+--     },
+-- }
 -- gls.right[9] = {
 --     ScrollBar = {
 --         provider = 'ScrollBar',
 --         highlight = {colors.purple, colors.section_bg}
 --     }
 -- }
+gls.right[10] = {
+    LineLeftCap = {
+        provider = function()
+            vim.api.nvim_command('hi GalaxyLineLeftCap guifg='..mode_color())
+            return ''
+        end,
+        highlight = { mode_color(), colors.bg },
+        separator = ' ',
+        separator_highlight = { mode_color(), colors.bg },
+    },
+}
+gls.right[11]= {
+  LineColumn = {
+    provider = function ()
+      vim.api.nvim_command('hi GalaxyLineColumn guibg='..mode_color())
+      local max_lines = vim.fn.line('$')
+      local line = vim.fn.line('.')
+      local column = vim.fn.col('.')
+      return string.format("%3d/%d:%d", line, max_lines, column)
+    end,
+    icon = '  ',
+    highlight = { colors.bg, mode_color() },
+  }
+}
+gls.right[12] = {
+    LineRightCap = {
+        provider = function()
+            vim.api.nvim_command('hi GalaxyLineRightCap guifg='..mode_color())
+            return ''
+        end,
+        highlight = { mode_color(), 'None' },
+    },
+}
+        --separator = ' ', -- 
 
 -- Short status line
 gls.short_line_left[1] = {
+    ShortNameLeftCap = {
+        provider = function()
+            return ''
+        end,
+        highlight = { colors.section_bg, 'None' },
+    },
+}
+gls.short_line_left[2] = {
     FileIcon = {
         provider = { function()
             return '  '
@@ -415,22 +476,36 @@ gls.short_line_left[1] = {
         },
     },
 }
-gls.short_line_left[2] = {
+gls.short_line_left[3] = {
     FileName = {
         provider = get_current_file_name,
         condition = buffer_not_empty,
         highlight = { colors.fg, colors.section_bg },
-        separator = '',
-        separator_highlight = { colors.section_bg, colors.bg },
+    },
+}
+gls.short_line_left[4] = {
+    ShortNameRightCap = {
+        provider = function()
+            return ''
+        end,
+        highlight = { colors.section_bg, colors.bg },
     },
 }
 
 gls.short_line_right[1] = {
     BufferIcon = {
         provider = 'BufferIcon',
-        highlight = { colors.yellow, colors.section_bg },
+        highlight = { colors.yellow, colors.bg },
         separator = '',
         separator_highlight = { colors.section_bg, colors.bg },
+    },
+}
+gls.short_line_right[2] = {
+    ShortIconRightCap = {
+        provider = function()
+            return ''
+        end,
+        highlight = { colors.bg, 'None' },
     },
 }
 
