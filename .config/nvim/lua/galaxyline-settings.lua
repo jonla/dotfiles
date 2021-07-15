@@ -84,10 +84,10 @@ local function get_current_file_name()
     end
     if vim.bo.modifiable then
         if vim.bo.modified then
-            return file .. '  '
+            return file .. ' '
         end
     end
-    return file .. ' '
+    return file
 end
 
 local function split(str, sep)
@@ -211,6 +211,11 @@ gls.left[3] = {
     ModeRightCap = {
         provider = function()
             vim.api.nvim_command('hi GalaxyModeRightCap guifg='..mode_color())
+            if buffer_not_empty() then
+                vim.api.nvim_command('hi GalaxyModeRightCap guibg='..colors.section_bg)
+            else
+                vim.api.nvim_command('hi GalaxyModeRightCap guibg='..colors.bg)
+            end
             return ''
         end,
         highlight = { mode_color(), colors.section_bg},
@@ -254,7 +259,7 @@ gls.left[6] = {
         provider = get_current_file_name,
         condition = buffer_not_empty,
         highlight = { colors.fg, colors.section_bg },
-        separator = ' ', -- 
+        separator = '', -- 
         separator_highlight = { colors.section_bg, colors.bg},
     },
 }
@@ -452,14 +457,24 @@ gls.right[12] = {
 
 -- Short status line
 gls.short_line_left[1] = {
+    ShortNoNameLeftCap = {
+        provider = function()
+            return ''
+        end,
+        condition = utils.is_buffer_empty,
+        highlight = { colors.bg, 'None' },
+    },
+}
+gls.short_line_left[2] = {
     ShortNameLeftCap = {
         provider = function()
             return ''
         end,
+        condition = buffer_not_empty,
         highlight = { colors.section_bg, 'None' },
     },
 }
-gls.short_line_left[2] = {
+gls.short_line_left[3] = {
     FileIcon = {
         provider = { function()
             return '  '
@@ -476,19 +491,28 @@ gls.short_line_left[2] = {
         },
     },
 }
-gls.short_line_left[3] = {
+gls.short_line_left[4] = {
     FileName = {
         provider = get_current_file_name,
         condition = buffer_not_empty,
         highlight = { colors.fg, colors.section_bg },
     },
 }
-gls.short_line_left[4] = {
+gls.short_line_left[5] = {
     ShortNameRightCap = {
         provider = function()
             return ''
         end,
+        condition = buffer_not_empty,
         highlight = { colors.section_bg, colors.bg },
+    },
+}
+gls.short_line_left[6] = {
+    Space = {
+        provider = function()
+            return ' '
+        end,
+        highlight = { 'None', colors.bg },
     },
 }
 
