@@ -42,6 +42,7 @@ set switchbuf=useopen,usetab,newtab
 set jumpoptions=stack
 
 set inccommand=nosplit
+set noshowmode
 
 " When switching buffers, preserve window view.
 autocmd BufLeave * call AutoSaveWinView()
