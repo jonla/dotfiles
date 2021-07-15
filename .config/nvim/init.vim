@@ -25,19 +25,5 @@ lua require('telescope-settings')
 lua require('devicons-settings')
 lua require('galaxyline-settings')
 
-set termguicolors
-colorscheme gruvbox
-
-" Set custom colors 
-function! s:patchColors()
-    hi clear vertsplit
-    hi Normal                                 guibg=None
-    hi GitGutterAdd            ctermbg=None   guibg=None
-    hi GitGutterChange         ctermbg=None   guibg=None
-    hi GitGutterDelete         ctermbg=None   guibg=None
-    hi GitGutterChangeDelete   ctermbg=None   guibg=None
-    hi Comment                 cterm=italic   gui=italic
-endfunction
-
-autocmd! ColorScheme * call s:patchColors()
-call s:patchColors()
+" Source colors last
+source ~/.config/nvim/colors.vim
