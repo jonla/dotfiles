@@ -18,6 +18,9 @@ function! s:patchColors()
     hi GitGutterDelete         ctermbg=None     guibg=None
     hi GitGutterChangeDelete   ctermbg=None     guibg=None
     hi CocWarningSign          ctermbg=None     guibg=None
+    hi CocErrorSign            ctermbg=None     guibg=None
+    hi CocInfoSign             ctermbg=None     guibg=None
+    hi CocHintSign             ctermbg=None     guibg=None
     hi Comment                 cterm=italic     gui=italic
     hi QuickScopePrimary       cterm=underline  gui=underline
 endfunction
@@ -25,6 +28,7 @@ endfunction
 autocmd! ColorScheme * call s:patchColors()
 
 " Set the actual colorscheme
+let g:gruvbox_invert_selection = '0'
 colorscheme gruvbox
 
 call s:patchColors()
