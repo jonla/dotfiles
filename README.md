@@ -6,12 +6,16 @@ Apply with
 # TODO
 * Make Telescope find_files respect .gitignore AND show hidden files
 * Replace fzf with telescope if possible?
-* Galaxyline inspiration from https://github.com/MagicDuck/dotfiles/blob/master/.config/nvim/lua/my/galaxyline/init.lua
+* Fix GUI colors not working correctly in urxvt outside of tmux
 
-# Quirks
-* GUI colors not working correctly in urxvt outside of tmux
-* Why does galaxyline remove vim splash screen?
-    * https://github.com/glepnir/galaxyline.nvim/issues/107
+# Links
+* [Slim vimrc](https://github.com/leeren/dotfiles/blob/master/vim/.vim/vimrc)
+* [Galaxyline inspiration](https://github.com/MagicDuck/dotfiles/blob/master/.config/nvim/lua/my/galaxyline/init.lua)
+
+* [GalaxyLine makes splash screen disappear](https://github.com/glepnir/galaxyline.nvim/issues/107)
+* [Neovide pre-built not working](https://github.com/Kethku/neovide/issues/643)
+* [Neovide catching unintended keystrokes](https://github.com/Kethku/neovide/issues/826)
+  * [Also discussed here](https://github.com/neovide/neovide/issues/763)
 
 # Note
 Idea was to apply all these dotfiles with:
