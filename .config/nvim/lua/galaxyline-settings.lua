@@ -9,13 +9,13 @@ gl.short_line_list = { 'packer', 'NvimTree', 'Outline', 'LspTrouble' }
 local colors = {
     bg = '#282c34',
     fg = '#abb2bf',
-    section_bg = '#38393f',
-    blue = '#61afef',
-    green = '#98c379',
-    purple = '#c678dd',
-    orange = '#e5c07b',
-    red = '#e06c75',
-    yellow = '#e5c07b',
+    section_bg = '#3c3836',
+    blue = '#076678',
+    green = '#98971a',
+    purple = '#b16286',
+    orange = '#d65d0e',
+    red = '#cc241d',
+    yellow = '#fabd2f',
     darkgrey = '#2c323d',
     middlegrey = '#8791A5',
 }
@@ -26,7 +26,7 @@ local buffer_not_empty = function()
 end
 
 local checkwidth = function()
-    return utils.has_width_gt(35) and buffer_not_empty()
+    return utils.has_width_gt(45) and buffer_not_empty()
 end
 
 local is_file = function()
@@ -42,12 +42,22 @@ local function has_value(tab, val)
     return false
 end
 
+                -- [110] = 'NORMAL',
+                -- [105] = 'INSERT',
+                -- [99] = 'COMMAND',
+                -- [116] = 'TERMINAL',
+                -- [118] = 'VISUAL',
+                -- [22] = 'V-BLOCK',
+                -- [86] = 'V-LINE',
+                -- [82] = 'REPLACE',
+                -- [115] = 'SELECT',
+                -- [83] = 'S-LINE',
 local mode_color = function()
     local mode_colors = {
         [110] = colors.green,
         [105] = colors.blue,
-        [99] = colors.green,
-        [116] = colors.blue,
+        [99] = colors.yellow,
+        [116] = colors.yellow,
         [118] = colors.purple,
         [22] = colors.purple,
         [86] = colors.purple,
@@ -193,7 +203,7 @@ gls.left[2] = {
             local alias = aliases[vim.fn.mode():byte()]
             local mode
             if alias ~= nil then
-                if utils.has_width_gt(35) then
+                if utils.has_width_gt(25) then
                     mode = alias
                 else
                     mode = alias:sub(1, 1)
@@ -240,7 +250,7 @@ gls.left[5] = {
             local tbl = split(fp, '/')
             local len = #tbl
 
-            if len > 2 and not len == 3 and not tbl[0] == '~' then
+            if len > 3 and not tbl[0] == '~' then
                 return '…/' .. table.concat(tbl, '/', len - 1) .. '/' -- shorten filepath to last 2 folders
                 -- alternative: only 1 containing folder using vim builtin function
                 -- return '…/' .. vim.fn.fnamemodify(vim.fn.expand '%', ':p:h:t') .. '/'
@@ -249,7 +259,7 @@ gls.left[5] = {
             end
         end,
         condition = function()
-            return is_file() and checkwidth()
+            return is_file() and utils.has_width_gt(35) and buffer_not_empty()
         end,
         highlight = { colors.middlegrey, colors.section_bg },
     },
@@ -288,6 +298,7 @@ gls.left[11] = {
         provider = { 'DiagnosticError' },
         icon = '  ',
         highlight = { colors.red, colors.bg },
+        condition = checkwidth,
         -- separator = ' ',
         -- separator_highlight = {colors.bg, colors.bg}
     },
@@ -303,6 +314,7 @@ gls.left[13] = {
         provider = { 'DiagnosticWarn' },
         icon = '  ',
         highlight = { colors.orange, colors.bg },
+        condition = checkwidth,
         -- separator = ' ',
         -- separator_highlight = {colors.bg, colors.bg}
     },
@@ -318,6 +330,7 @@ gls.left[15] = {
         provider = { 'DiagnosticInfo' },
         icon = '  ',
         highlight = { colors.blue, colors.bg },
+        condition = checkwidth,
         -- separator = ' ',
         -- separator_highlight = {colors.section_bg, colors.bg}
     },
@@ -388,7 +401,9 @@ gls.right[6] = {
             end,
             'GitBranch',
         },
-        condition = condition.check_git_workspace,
+        condition = function()
+            return utils.has_width_gt(30) and condition.check_git_workspace()
+        end,
         highlight = { colors.middlegrey, colors.bg },
     },
 }
@@ -438,7 +453,11 @@ gls.right[11]= {
       local max_lines = vim.fn.line('$')
       local line = vim.fn.line('.')
       local column = vim.fn.col('.')
-      return string.format("%3d/%d:%d", line, max_lines, column)
+      if utils.has_width_gt(35) then
+        return string.format("%d/%d:%d", line, max_lines, column)
+      else
+        return line
+      end
     end,
     icon = '  ',
     highlight = { colors.bg, mode_color() },
