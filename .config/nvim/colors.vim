@@ -10,7 +10,9 @@ function! s:patchColors()
     hi StatusLine                               guibg=None gui=None
     hi StatusLineNC                             guibg=None gui=None
     hi LineNr                  ctermfg=gray     guifg=#404040
-    hi Normal                                   guibg=None
+    if (exists("g:neovide") == 0)
+        hi Normal                               guibg=None
+    endif
     hi GitGutterAdd            ctermbg=None     guibg=None
     hi GitGutterChange         ctermbg=None     guibg=None
     hi GitGutterDelete         ctermbg=None     guibg=None

@@ -9,6 +9,7 @@
 source ~/.config/nvim/general.vim
 source ~/.config/nvim/keymappings.vim
 source ~/.config/nvim/snippets.vim
+source ~/.config/nvim/neovide.vim
 
 " Plugin settings
 source ~/.config/nvim/plugged.vim

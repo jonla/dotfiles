@@ -15,7 +15,7 @@ set backspace=eol,start,indent
 set whichwrap=""
 set ignorecase
 set smartcase
-set lazyredraw 
+" set lazyredraw 
 set showmatch 
 set matchtime=2
 set ttimeoutlen=0
