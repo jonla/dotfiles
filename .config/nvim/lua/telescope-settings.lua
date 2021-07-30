@@ -78,3 +78,4 @@ vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files hidden=true fol
 vim.api.nvim_set_keymap('n', '<leader>b', ':Telescope buffers<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>H', ':Telescope oldfiles<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>Fd', ':Telescope find_files cwd=~/dotfiles/ prompt_title=Dotfiles hidden=true follow=true<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>s?', ':Telescope spell_suggest<CR>', {noremap = true, silent = true})
