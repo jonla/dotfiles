@@ -21,7 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'vim-airline/vim-airline'
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'unblevable/quick-scope'
+    " Plug 'unblevable/quick-scope'
     " Telescope  and requirements
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'

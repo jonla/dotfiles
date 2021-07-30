@@ -20,7 +20,7 @@ source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/nvim-tree.vim
 " source ~/.config/nvim/airline.vim
-source ~/.config/nvim/quickscope.vim
+" source ~/.config/nvim/quickscope.vim
 lua require('telescope-settings')
 lua require('devicons-settings')
 lua require('galaxyline-settings')
