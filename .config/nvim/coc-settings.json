@@ -2,5 +2,8 @@
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pylintUseMinimalCheckers" : false,
-    "python.linting.pylintPath": "/home/s0000105/workspace/madame-web/tools/venv/bin/pylint"
+    "python.linting.pylintPath": "/home/s0000105/workspace/madame-web/tools/venv/bin/pylint",
+    "Lua.completion.callSnippet": "Replace",
+    "Lua.hint.enable": true,
+    "Lua.diagnostics.globals": ["vim"]
 }
