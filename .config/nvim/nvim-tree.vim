@@ -2,7 +2,6 @@
 
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
 let g:nvim_tree_gitignore = 1 
-let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
 
 " nnoremap <leader>t :NvimTreeToggle<CR>
 " nnoremap <leader>Tf :NvimTreeFindFile<CR>
@@ -56,3 +55,9 @@ endfunction
 
 nnoremap <leader>t :call ToggleTree()<CR>
 nnoremap <leader>T :call OpenTree()<CR>
+
+lua << EOF
+require'nvim-tree'.setup{
+    auto_close = true,
+}
+EOF
