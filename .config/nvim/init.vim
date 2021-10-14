@@ -21,6 +21,7 @@ source ~/.config/nvim/vimux.vim
 source ~/.config/nvim/fzf.vim
 source ~/.config/nvim/coc.vim
 source ~/.config/nvim/nvim-tree.vim
+source ~/.config/nvim/fugitive.vim
 " source ~/.config/nvim/airline.vim
 " source ~/.config/nvim/quickscope.vim
 lua require('telescope-settings')

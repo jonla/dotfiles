@@ -1,6 +1,6 @@
 " Goyo settings
 
-nnoremap <silent> <leader>G :Goyo<CR>
+" nnoremap <silent> <leader>G :Goyo<CR>
 let g:goyo_width = 80
 let g:goyo_height = 80
 
