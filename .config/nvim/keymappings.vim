@@ -13,7 +13,7 @@ nnoremap : ;
 
 inoremap jj <Esc>
 " Fast switching to the alternate file
-nnoremap <BS> :buffer#<CR>
+" nnoremap <BS> :buffer#<CR>
 " Window management
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 6/5)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 5/6)<CR>
@@ -88,7 +88,7 @@ nnoremap <silent> <s-tab> :bprevious<cr>
 nnoremap <leader>l :e#<cr>
 
 " Opens a file in the current buffer's path
-nnoremap <leader>e :e <c-r>=Relpath(expand("%:h"))<cr>
+nnoremap <leader>E :e <c-r>=Relpath(expand("%:h"))<cr>
 
 " Copy filename
 nnoremap <leader>cs :let @+=expand("%:t")<CR>

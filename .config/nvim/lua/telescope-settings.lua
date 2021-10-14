@@ -14,7 +14,7 @@ require("telescope").setup {
             '--smart-case'
         },
         color_devicons = true,
-        path_display = {"shorten"},
+        path_display = {shorten = 5},
         file_ignore_patterns = {".git"},
         mappings = {
             i = {
@@ -79,3 +79,21 @@ vim.api.nvim_set_keymap('n', '<leader>b', ':Telescope buffers<CR>', {noremap = t
 vim.api.nvim_set_keymap('n', '<leader>H', ':Telescope oldfiles<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>Fd', ':Telescope find_files cwd=~/dotfiles/ prompt_title=Dotfiles hidden=true follow=true<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>s?', ':Telescope spell_suggest<CR>', {noremap = true, silent = true})
+
+M = {}
+M.relative_search = function()
+
+    local cwd = vim.fn.expand('%:h') vim.fn.getcwd()
+    if cwd == '' then
+        cwd = vim.fn.getcwd()
+    end
+    local opts = {
+        cwd = cwd,
+        prompt_title = "Relative files",
+        hidden = true,
+        follow = true
+    }
+    require('telescope.builtin').find_files(opts)
+end
+
+vim.api.nvim_set_keymap('n', '<leader>e', [[<cmd>lua M.relative_search()<cr> ]], {noremap = true, silent = true})
