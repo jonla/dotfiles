@@ -270,7 +270,7 @@ bindsym $mod+m exec --no-startup-id $term --title "floating_term" -e sh -c "tmux
 for_window [title=floating_term] floating enable, resize set height 500, resize set width 700, move position center
 
 # Toggle language
-bindsym $mod+c exec ~/.local/bin/i3scripts/toggle_layout
+bindsym $mod+c exec ~/.local/bin/i3scripts/toggle_keyboard_language
 
 ##### Application specific #####
 for_window [title="Microsoft Teams Notification"] floating enable
