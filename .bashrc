@@ -162,13 +162,13 @@ bind TAB:menu-complete
 bind '"\e[Z": menu-complete-backward'
 
 # Local file with exports 
-if [ -f ~/.exports ]; then
-    . ~/.exports
+if [ -f ~/.local/exports ]; then
+    . ~/.local/exports
 fi
 
 # Local file with aliases 
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
+if [ -f ~/.local/aliases ]; then
+    . ~/.local/aliases
 fi
 
 # Extract most know archives with one command
