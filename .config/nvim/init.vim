@@ -27,6 +27,7 @@ source ~/.config/nvim/fugitive.vim
 lua require('telescope-settings')
 lua require('devicons-settings')
 lua require('galaxyline-settings')
+lua require('bufferline-settings')
 lua require('nvim-toggleterm-settings')
 
 " Source colors last
