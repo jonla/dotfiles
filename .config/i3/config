@@ -33,7 +33,7 @@ set $term urxvt
 
 set $inner_gaps 60
 set $outer_gaps 0
-set $border_radius 8
+set $border_radius 0
 
 for_window [class=".*"] border pixel 0
 gaps inner $inner_gaps
