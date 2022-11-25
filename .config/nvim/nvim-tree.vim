@@ -1,10 +1,5 @@
 " Nvim-tree settings
 
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
-let g:nvim_tree_gitignore = 1 
-
-" nnoremap <leader>t :NvimTreeToggle<CR>
-" nnoremap <leader>Tf :NvimTreeFindFile<CR>
 
 " Check if nvim-tree is open or active
 function! IsNvimTreeOpen()
@@ -56,8 +51,14 @@ endfunction
 nnoremap <leader>t :call ToggleTree()<CR>
 nnoremap <leader>T :call OpenTree()<CR>
 
+" https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close
 lua << EOF
 require'nvim-tree'.setup{
-    auto_close = true,
+    filters = {
+        custom = { '.git', 'node_modules', '.cache' },
+    },
+    git = {
+        ignore = true
+    }
 }
 EOF
