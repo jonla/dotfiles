@@ -76,7 +76,7 @@ require('telescope').load_extension('fzf')
 
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files hidden=true follow=true<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>b', ':Telescope buffers<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>H', ':Telescope oldfiles<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>L', ':Telescope oldfiles<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>Fd', ':Telescope find_files cwd=~/dotfiles/ prompt_title=Dotfiles hidden=true follow=true<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>s?', ':Telescope spell_suggest<CR>', {noremap = true, silent = true})
 
@@ -96,4 +96,4 @@ M.relative_search = function()
     require('telescope.builtin').find_files(opts)
 end
 
-vim.api.nvim_set_keymap('n', '<leader>e', [[<cmd>lua M.relative_search()<cr> ]], {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>e', ':lua M.relative_search()<CR>', {noremap = true, silent = true})
