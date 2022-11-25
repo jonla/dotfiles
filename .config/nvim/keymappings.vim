@@ -11,7 +11,7 @@ vnoremap : ;
 nnoremap ; :
 nnoremap : ;
 
-inoremap jj <Esc>
+" inoremap <leader><leader> <Esc>
 " Fast switching to the alternate file
 " nnoremap <BS> :buffer#<CR>
 " Window management
