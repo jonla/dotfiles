@@ -1,9 +1,29 @@
 {
+    "suggest.noselect": true,
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pylintUseMinimalCheckers" : false,
     "python.linting.pylintPath": "/home/s0000105/workspace/madame-web/tools/venv/bin/pylint",
     "Lua.completion.callSnippet": "Replace",
     "Lua.hint.enable": true,
-    "Lua.diagnostics.globals": ["vim"]
+    "Lua.diagnostics.globals": ["vim"],
+    "languageserver":{
+        "clangd":{
+        "command":"clangd",
+        "filetypes":[
+            "c",
+            "cpp"
+        ],
+        "rootPatterns":[
+            "compile_commands.json",
+            ".git"
+        ],
+        "args":[
+            "--all-scopes-completion",
+            "--background-index",
+            "--clang-tidy",
+            "--clang-tidy-checks= *, -altera-struct-pack-align, -fuchsia-default-arguments-calls, -fuchsia-default-arguments-declarations, -fuchsia-overloaded-operator, -fuchsia-trailing-return, -google-runtime-references, -llvm-header-guard, -llvm-qualified-auto, -llvmlibc-callee-    namespace, -llvmlibc-implementation-in-namespace, -llvmlibc-restrict-system-libc-headers, -misc-misplaced-const, -modernize-pass-by-value, -modernize-return-braced-init-list, -modernize-use-default-member-init, -modernize-use-trailing-return-type, -mpi-buffer-deref, -mpi-type-m    ismatch, -readability-avoid-const-params-in-decls, -readability-function-cognitive-complexity, -readability-qualified-auto, -readability-redundant-member-init, -readability-static-accessed-through-instance"
+        ]
+        }
+    }
 }
