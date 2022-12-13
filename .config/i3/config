@@ -19,11 +19,11 @@ exec --no-startup-id $HOME/.fehbg
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 12
+# font pango:monospace 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 10
 
 set $mod Mod4
 set $term urxvt
@@ -33,7 +33,7 @@ set $term urxvt
 
 set $inner_gaps 60
 set $outer_gaps 0
-set $border_radius 0
+set $border_radius 3
 
 for_window [class=".*"] border pixel 0
 gaps inner $inner_gaps
@@ -137,6 +137,11 @@ mode "resize" {
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym shift+h resize shrink width 50 px or 50 ppt
+        bindsym shift+j resize grow height 50 px or 50 ppt
+        bindsym shift+k resize shrink height 50 px or 50 ppt
+        bindsym shift+l resize grow width 50 px or 50 ppt
 
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
@@ -243,7 +248,8 @@ bar {
     }
 }
 
-bindsym $mod+b bar mode toggle
+# bindsym $mod+b bar mode toggle
+bindsym $mod+b exec --no-startup-id i3bartoggle
 
 
 ##### Media keys #####
@@ -270,12 +276,14 @@ bindsym $mod+t exec --no-startup-id transset -a -t 0.92
 
 # Open nmtui window
 bindsym $mod+n exec --no-startup-id $term --title "floating_term" -e sh -c "nmtui"
-bindsym $mod+m exec --no-startup-id $term --title "floating_term" -e sh -c "tmux new-session nvim ~/notes.md"
+bindsym $mod+m exec --no-startup-id $term --title "floating_term" -e sh -c "tmux new-session nvim ~/new-computer.txt"
 for_window [title=floating_term] floating enable, resize set height 500, resize set width 700, move position center
 
 # Toggle language
-bindsym $mod+c exec ~/.local/bin/i3scripts/toggle_keyboard_language
+bindsym $mod+c exec i3togglekeyboardlanguage
 
 ##### Application specific #####
 for_window [title="Microsoft Teams Notification"] floating enable
 no_focus [title="Microsoft Teams Notification"]
+for_window [class="matplotlib"] floating enable, move right 500
+for_window [title="sxiv"] floating enable, resize set height 1000, resize set width 1500, move position center
