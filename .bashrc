@@ -192,3 +192,11 @@ extract () {
          echo "'$1' is not a valid file"
      fi
 }
+
+# z.lua stuff
+export _ZL_DATA=$HOME/.cache/zlua
+export _ZL_HYPHEN=1
+eval "$(lua $HOME/git/z.lua/z.lua --init bash enhanced once fzf)"
+alias zz='z -c'      # restrict matches to subdirs of $PWD
+alias zf='z -I'      # use fzf to select in multiple matches
+alias zb='z -b'      # quickly cd to the parent directory
