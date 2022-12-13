@@ -11,7 +11,7 @@
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id cbatticon
-exec --no-startup-id compton -f
+exec --no-startup-id picom -f
 exec --no-startup-id $HOME/.fehbg
 
 
@@ -223,9 +223,15 @@ bindsym $mod+Ctrl+0 move container to workspace number $ws10
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    i3bar_command i3bar --transparency
+    # i3bar_command i3bar --transparency
+    i3bar_command i3bar
+    separator_symbol " | "
+    status_command i3status
+    mode invisible
+    # i3bar_command i3bar
     colors {
-        background #0000ff00
+        # background #0000ff00
+        background #282828
         statusline #ffffff
         separator #666666
 
@@ -235,8 +241,6 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
-    separator_symbol " | "
-    status_command i3status
 }
 
 bindsym $mod+b bar mode toggle
@@ -262,7 +266,7 @@ bindsym XF86MonBrightnessDown exec "light -U 5"
 bindsym --release $mod+p exec --no-startup-id scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/pictures/screenshots && mv $f ~/pictures/screenshots && xclip -selection clipboard -t image/png -i ~/pictures/screenshots/`ls -1 -t ~/pictures/screenshots | head -1`' # Area selection
 
 # Toggle transparency
-bindsym $mod+t exec --no-startup-id transset -a -t 0.9
+bindsym $mod+t exec --no-startup-id transset -a -t 0.92
 
 # Open nmtui window
 bindsym $mod+n exec --no-startup-id $term --title "floating_term" -e sh -c "nmtui"
