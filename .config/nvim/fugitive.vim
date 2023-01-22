@@ -1,8 +1,8 @@
 " Fugitive settings
 
 function! ToggleGStatus()
-  if buflisted(bufname('.git/index'))
-    bd .git/index
+  if buflisted(bufname('fugitive'))
+    bd fugitive
   else
     Git
     15wincmd_
