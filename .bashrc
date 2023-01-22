@@ -102,6 +102,7 @@ alias la='ls -lAFh'
 alias l='ls -CF'
 alias tat='tmux attach || tmux new-session'
 alias asdf='source ~/.xinitrc'
+alias xo='xdg-open'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -118,6 +119,9 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+  if [ -f /etc/bash_completion.d/bazel ]; then
+    complete -F _bazel__complete -o nospace bazel.py
+  fi
 fi
 
 # Enable vi key bindings
@@ -128,7 +132,7 @@ bind -m vi-insert 'Control-l: clear-screen'
 # Enable fzf keybindings and auto-completion
 if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
-    source /usr/share/doc/fzf/examples/completion.bash
+    # source /usr/share/doc/fzf/examples/completion.bash
     export FZF_DEFAULT_OPTS='--height 30% --layout=reverse'
 fi
 
@@ -154,7 +158,19 @@ export TERMINAL=urxvt
 # Fix issue with pyright: (https://fabiorosado.dev/blog/pyright-worker-threads-missing/)
 export NODE\_OPTIONS=--experimental-worker
 
-alias vim=nvim
+# alias vim=nvim
+alias nvim='XDG_CONFIG_HOME="$HOME/.config/nvchad" \
+          XDG_DATA_HOME="$HOME/.local/share/nvchad" \
+          XDG_CACHE_HOME="$HOME/.cache/nvchad" \
+          nvim "$@"'
+alias vim='XDG_CONFIG_HOME="$HOME/.config/nvchad" \
+          XDG_DATA_HOME="$HOME/.local/share/nvchad" \
+          XDG_CACHE_HOME="$HOME/.cache/nvchad" \
+          nvim "$@"'
+alias kvim='XDG_CONFIG_HOME="$HOME/.config/kickstart" \
+          XDG_DATA_HOME="$HOME/.local/share/kickstart" \
+          XDG_CACHE_HOME="$HOME/.cache/kickstart" \
+          nvim "$@"'
 alias vimdiff='nvim -d'
 
 # Nicer tab-completion in bash
