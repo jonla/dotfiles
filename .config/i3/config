@@ -31,7 +31,7 @@ set $term urxvt
 
 ##### Gaps and Borders #####
 
-set $inner_gaps 60
+set $inner_gaps 30
 set $outer_gaps 0
 set $border_radius 3
 
@@ -47,7 +47,6 @@ smart_borders no_gaps
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
 
 ##### Basic Keybindings #####
 
@@ -66,7 +65,7 @@ bindsym $mod+v exec dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 
 # rofi
-bindsym $mod+d exec --no-startup-id "rofi -combi-modi window,drun -theme gruvbox-dark -show combi -matching fuzzy -icon-theme 'Papirus' -show-icons"
+bindsym $mod+d exec --no-startup-id "rofi -combi-modi drun -theme gruvbox-dark -show combi -matching fuzzy -icon-theme 'Papirus' -show-icons"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
