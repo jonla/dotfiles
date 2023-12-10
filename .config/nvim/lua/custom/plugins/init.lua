@@ -139,7 +139,7 @@ return {
     },
     ["kyazdani42/nvim-tree.lua"] = {
         ft = "alpha",
-        cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeFindFileToggle" },
+        -- cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeFindFileToggle" },
         config = function()
             require "plugins.configs.nvimtree"
         end,
@@ -261,12 +261,14 @@ return {
                     file_ignore_patterns = { ".git/" },
                     mappings = {
                         i = {
+                            ["<Tab>"] = require("telescope.actions.layout").toggle_preview,
                             ["<C-c>"] = actions.close,
                             ["<C-j>"] = actions.move_selection_next,
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<esc>"] = actions.close,
                         },
                         n = {
+                            ["<Tab>"] = require("telescope.actions.layout").toggle_preview,
                             ["<C-j>"] = actions.move_selection_next,
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist
@@ -284,6 +286,16 @@ return {
                     }
                 }
             }
+        end
+    },
+    ["princejoogie/dir-telescope.nvim"] = {
+        requires = "nvim-telescope/telescope.nvim",
+        after = "telescope.nvim",
+        config = function()
+            require("dir-telescope").setup({
+                hidden = false,
+                show_preview = false,
+            })
         end
     },
     ["yioneko/nvim-yati"] = {

@@ -374,6 +374,12 @@ M.telescope = {
     },
 }
 
+M.dir_telescope = {
+    n = {
+        ["<leader>fg"] = { ":GrepInDirectory <CR>", "telescope live grep in directory" },
+    }
+}
+
 M.nvimtree = {
     n = {
         -- toggle
