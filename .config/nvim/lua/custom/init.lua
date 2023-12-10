@@ -5,6 +5,7 @@ local opt = vim.opt
 
 opt.writebackup = false
 opt.swapfile = false
+opt.splitkeep = "screen"
 opt.scrolloff = 7
 opt.path:append "**"
 opt.wildignore:append "*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"
@@ -13,6 +14,7 @@ opt.whichwrap   = ""
 -- opt.lazyredraw  = true
 opt.showmatch   = true
 opt.matchtime   = 2
+opt.timeout = false
 opt.ttimeoutlen = 0
 opt.shortmess:append "c"
 opt.shiftround = true
