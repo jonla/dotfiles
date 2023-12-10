@@ -42,18 +42,22 @@ return {
                     enable = true,
                     set_jumps = true, -- whether to set jumps in the jumplist
                     goto_next_start = {
+                        [']a'] = '@parameter.outer',
                         [']m'] = '@function.outer',
                         [']]'] = '@class.outer',
                     },
                     goto_next_end = {
+                        [']A'] = '@parameter.outer',
                         [']M'] = '@function.outer',
                         [']['] = '@class.outer',
                     },
                     goto_previous_start = {
+                        ['[a'] = '@parameter.outer',
                         ['[m'] = '@function.outer',
                         ['[['] = '@class.outer',
                     },
                     goto_previous_end = {
+                        ['[A'] = '@parameter.outer',
                         ['[M'] = '@function.outer',
                         ['[]'] = '@class.outer',
                     },
@@ -83,6 +87,11 @@ return {
     ["tpope/vim-sleuth"] = {},
     ["tpope/vim-unimpaired"] = {},
     ["tpope/vim-repeat"] = {},
+    ["chrisgrieser/nvim-various-textobjs"] = {
+        config = function()
+            require("various-textobjs").setup({ useDefaultKeymaps = true })
+        end,
+    },
     ["lakshayg/vim-bazel"] = {},
     ["mfussenegger/nvim-dap"] = {
         config = function()
