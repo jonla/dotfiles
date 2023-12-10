@@ -158,19 +158,7 @@ export TERMINAL=urxvt
 # Fix issue with pyright: (https://fabiorosado.dev/blog/pyright-worker-threads-missing/)
 export NODE\_OPTIONS=--experimental-worker
 
-# alias vim=nvim
-alias nvim='XDG_CONFIG_HOME="$HOME/.config/nvchad" \
-          XDG_DATA_HOME="$HOME/.local/share/nvchad" \
-          XDG_CACHE_HOME="$HOME/.cache/nvchad" \
-          nvim "$@"'
-alias vim='XDG_CONFIG_HOME="$HOME/.config/nvchad" \
-          XDG_DATA_HOME="$HOME/.local/share/nvchad" \
-          XDG_CACHE_HOME="$HOME/.cache/nvchad" \
-          nvim "$@"'
-alias kvim='XDG_CONFIG_HOME="$HOME/.config/kickstart" \
-          XDG_DATA_HOME="$HOME/.local/share/kickstart" \
-          XDG_CACHE_HOME="$HOME/.cache/kickstart" \
-          nvim "$@"'
+alias vim=nvim
 alias vimdiff='nvim -d'
 
 # Nicer tab-completion in bash
