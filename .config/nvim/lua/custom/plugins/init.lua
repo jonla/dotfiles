@@ -111,9 +111,12 @@ return {
         override_options = {
             statusline = {
                 separator_style = "default", -- default/round/block/arrow
-                overriden_modules = nil,
+                overriden_modules = function()
+                    return require "custom.plugins.statusline_override"
+                end
             },
             tabufline = {
+                enabled = false,
                 lazyload = false,
                 overriden_modules = nil,
             },
