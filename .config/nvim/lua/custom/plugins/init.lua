@@ -93,6 +93,12 @@ return {
         end,
     },
     ["lakshayg/vim-bazel"] = {},
+    ["ThePrimeagen/refactoring.nvim"] = {
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-treesitter/nvim-treesitter" },
+        },
+    },
     ["mfussenegger/nvim-dap"] = {
         config = function()
             require("custom.plugins.dap")

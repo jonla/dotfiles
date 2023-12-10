@@ -118,6 +118,33 @@ for k, v in pairs(harpoon_mappings) do
     }
 end
 
+M.refactoring = {
+    v = {
+        ["<leader>av"] = {
+            function()
+                require("refactoring").refactor("Extract Variable")
+            end,
+        },
+        ["<leader>am"] = {
+            function()
+                require("refactoring").refactor("Extract Function")
+            end,
+        },
+        ["<leader>ai"] = {
+            function()
+                require("refactoring").refactor("Inline variable")
+            end,
+        },
+    },
+    n = {
+        ["<leader>av"] = {
+            function ()
+                require("refactoring").refactor("Inline variable")
+            end
+        }
+    }
+}
+
 -- nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>
 M.dap = {
     n = {
