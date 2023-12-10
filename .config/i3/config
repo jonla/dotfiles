@@ -285,4 +285,6 @@ bindsym $mod+c exec i3togglekeyboardlanguage
 for_window [title="Microsoft Teams Notification"] floating enable
 no_focus [title="Microsoft Teams Notification"]
 for_window [class="matplotlib"] floating enable, move right 500
+for_window [class="matplotlib"] floating disable
+for_window [title="Sequence Overview"] floating disable
 for_window [title="sxiv"] floating enable, resize set height 1000, resize set width 1500, move position center
